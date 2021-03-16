@@ -22,5 +22,3 @@ for i in range(1, maxRows+1):
                 print(a1.value, a2.value, a3.value)
 
 
-book2 = openpyxl.load_workbook('sample.xlsx')
-print(book2.get_sheet_names())
