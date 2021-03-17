@@ -30,10 +30,8 @@ print(text)
 print("reading the path from file")
 pathList = []
 f = open("demo.txt", "r")
-print(f)
+context = f.read()
+CoList = context.split("\n")
 
-for i in
-lin = f.readline()
-pathList.append(lin)
-print(len(pathList))
-print(pathList)
+print(CoList)
+# code is working fine for reading through the file
