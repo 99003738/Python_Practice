@@ -1,10 +1,8 @@
 
 pathList = []
 inputList = []
-RF_TextFilePath = 0
-RF_MenualPath = 0
+Dict = dict({"RF_TextFilePath": 0, "RF_ManualPath" : 0, "RF_ManualFilterInput": 0})
 inputDict = {}
-RF_ManualFilterInput = 0
 
 
 def textfilenameread():
@@ -17,7 +15,7 @@ def textfilepathread():
     file = open(textfilepath, "r")
     context = file.read()
     pathList = context.split("\n")
-    RF_TextFilePath = 1
+    Dict["RF_TextfilePath"] = 1
 
 
 def terminalpathinput():
@@ -27,7 +25,7 @@ def terminalpathinput():
 def manuentrypath():
     manuInput = input("Copy Your Path Here : ")
     pathList.append(manuInput)
-    RF_MenualPath = 1
+    Dict["RF_ManualPath"] = 1
     userInput = input("Want to Add more:: Y/N : ")
     while True:
         if userInput == 'Y' or userInput == 'y':
@@ -40,6 +38,7 @@ def manuentrypath():
 
 def manuentryname():
     pass
+
 
 def user_selection():
 
@@ -69,11 +68,11 @@ def manual_filter_input():
 
     print("Enter Maximum Three Identity :: Format :: Col_Name,value ::: Ex- xyz,123abc :::: PRESS Enter key")
     filterinput = input("Input Data Here : ")
-    #print(filterinput)
-    inputlist1 = filterinput.split(",")
+    # print(filterinput)
+    inputlist1 = filterinput.split(",")                              # Here taking input in list but filtering the data according to second data of list.
     inputList.append(inputlist1[1])
-    #inputDict[inputlist1[0]] = inputlist1[1]
-    RF_ManualFilterInput = 1
+    # inputDict[inputlist1[0]] = inputlist1[1]
+    Dict["RF_ManualFilterInput"] = 1
     userInput = input("Want to add more filter:: Y/N : ")
     while True:
         if userInput == 'Y' or userInput == 'y':
@@ -82,7 +81,7 @@ def manual_filter_input():
             inputList.append(inputlist1[1])
             # inputDict[inputlist1[0]] = inputlist1[1]
 
-        elif  userInput == 'N' or userInput == 'n':
+        elif userInput == 'N' or userInput == 'n':
             break
         userInput = input("Want to add more filter:: Y/N : ")
 
@@ -99,7 +98,10 @@ def user_choice_selection():
         manual_filter_input()
     elif userChoice == 2:
         show_column_header()
+
+
 # user_selection()
 # print(pathList)
 # user_choice_selection()
 # print(inputDict)
+# print(Dict)

@@ -3,12 +3,14 @@ from openpyxl import load_workbook
 path2 = "D:\Python\sheets.xlsx"   # this method of giving path is working
 path = "D:\\Git_Python\\Practice_problem\\sheets.xlsx"  # this method is also working
 wb = load_workbook(path2)
-sheet1 = wb["sheet1"]        # this is new way to call the sheets in a particular workbook
-sheet2 = wb["sheet2"]
-sheet3 = wb["sheet3"]
-sheet4 = wb["sheet4"]
-sheet5 = wb["sheet5"]
-Master = wb["Master"]
+sheellist= wb.sheetnames
+print(sheellist)
+sheet1 = wb[sheellist[0]]        # this is new way to call the sheets in a particular workbook
+sheet2 = wb[sheellist[1]]
+sheet3 = wb[sheellist[2]]
+sheet4 = wb[sheellist[3]]
+sheet5 = wb[sheellist[4]]
+Master = wb[sheellist[5]]
 maxRowsSheet1 = sheet1.max_row
 maxColumnSheet1 = sheet1.max_column
 

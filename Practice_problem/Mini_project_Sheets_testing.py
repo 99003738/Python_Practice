@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 
 ######  This is code to take out the all the sheet name from the given workbook
 print("reading directly the path")
-path = "C:\\Users\\Shivam\\PycharmProjects\\Python_Practice\\Practice_problem\\sheets.xlsx"
+path = "D:\Git_Python\Practice_problem\sheets.xlsx"
 workbook = load_workbook(path)
 number_of_sheet = workbook.sheetnames
 print(number_of_sheet)
@@ -40,8 +40,9 @@ print(CoList)
 
 # NOW TAKING OUT THE PATH AND PRINTING THE SHEETS.
 # issue is in the format of the path which taking the \\ between them.
-
+print("Now checking for double slash")
 pathVariable = CoList[0]
+print(pathVariable)
 myWorkbook = load_workbook(pathVariable)
 number_of_sheet = myWorkbook.sheetnames
 print(number_of_sheet)                       # Tested OK
