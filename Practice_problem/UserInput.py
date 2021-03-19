@@ -14,8 +14,12 @@ def textfilepathread():
     textfilepath = input("Enter your .txt Path here:  ")
     file = open(textfilepath, "r")
     context = file.read()
-    pathList = context.split("\n")
+    textpathlist = context.split("\n")
+    # print(textpathlist)
     Dict["RF_TextfilePath"] = 1
+    for item in textpathlist:
+        pathList.append(item)
+
 
 
 def terminalpathinput():
@@ -102,6 +106,6 @@ def user_choice_selection():
 
 # user_selection()
 # print(pathList)
-# user_choice_selection()
-# print(inputDict)
-# print(Dict)
+
+
+
