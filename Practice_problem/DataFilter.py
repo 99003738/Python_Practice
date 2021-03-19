@@ -5,7 +5,7 @@ from openpyxl import load_workbook
 
 
 def sheettraversing(sheet):
-    print("you are in sheettraversing")
+    # print("you are in sheettraversing")
     validFlag = 0
     maxrows = sheet.max_row
     maxcolumn = sheet.max_column

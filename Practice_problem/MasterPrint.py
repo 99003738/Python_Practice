@@ -3,6 +3,23 @@ import UserInput
 import DataFilter
 
 
+def writing_mastersheet():
+    pathMasterWorkbook = UserInput.outputPath[0]
+    masterbook = xl.load_workbook(pathMasterWorkbook)
+    lstsheet = masterbook.sheetnames
+    length = len(lstsheet)
+    currMassheet = masterbook.worksheets[0]
+    print("\n")
+    print("1. OverWrite ")
+    print("2.New Sheet")
+    choice = int(input("Enter Your choice : "))
+    if choice == 1:
+        currMassheet.delete_rows(2, currMassheet.max_row - 1)
+        masterbook.save(UserInput.outputPath[0])
+    elif choice == 2:
+        ws1 = masterbook.create_sheet("Mysheet")
+        masterbook.save(UserInput.outputPath[0])
+
 
 
 def sending_data_master(pathvariable, searchitem = []):
@@ -13,11 +30,15 @@ def sending_data_master(pathvariable, searchitem = []):
     lengthworkbook1 = len(workbooksheet)
 
     # opening the destination worksheet
-    pathMasterWorkbook = "C:\\Users\\99003738\\Desktop\\MasterBook.xlsx"
+    # pathMasterWorkbook = "C:\\Users\\Shivam\\Desktop\\MasterBook.xlsx"
+    pathMasterWorkbook = UserInput.outputPath[0]
     masterbook = xl.load_workbook(pathMasterWorkbook)
-    workSheetMaster = masterbook.active
-    currMassheet = masterbook.worksheets[0]
-
+    no_of_sheet = len(masterbook.sheetnames)
+    # workSheetMaster = masterbook.active
+    if no_of_sheet == 1:
+        currMassheet = masterbook.worksheets[0]
+    else:
+        currMassheet = masterbook.worksheets[(no_of_sheet-1)]
     index = 0
 
     print(searchitem)
@@ -47,10 +68,10 @@ def sending_data_master(pathvariable, searchitem = []):
             data1 = searchitem[index]
             for j in range(1, 4):
                 valuecheck = sheets.cell(row= i , column= j)
-                value1 = valuecheck.value
+                value1 = str(valuecheck.value)
                 # print(data1)
                 # print(value1)
-                if value1 == data1:
+                if value1 == str(data1):
                     rownum = rownum + 1
                     mastercol =1
                     # print(data1)
@@ -60,7 +81,7 @@ def sending_data_master(pathvariable, searchitem = []):
                         # print(cellprintpos)
                         cellprintval = cellprintpos.value
                         # print(cellprintval)
-                        workSheetMaster.cell(row= rownum, column= mastercol).value =  sheets.cell(row=i, column= k).value
+                        currMassheet.cell(row= rownum, column= mastercol).value =  sheets.cell(row=i, column= k).value
                         mastercol = mastercol+1
                     # index = index + 1
     masterbook.save(str(pathMasterWorkbook))
@@ -68,7 +89,8 @@ def sending_data_master(pathvariable, searchitem = []):
 
 UserInput.user_selection()
 UserInput.user_choice_selection()
-
+UserInput.outputResult_path()
+writing_mastersheet()
 length0fpathlist = len(UserInput.pathList)
 for d in range(0, length0fpathlist):
     path = UserInput.pathList[d]
