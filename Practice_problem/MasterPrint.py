@@ -95,5 +95,5 @@ length0fpathlist = len(UserInput.pathList)
 for d in range(0, length0fpathlist):
     path = UserInput.pathList[d]
     check = DataFilter.validating_input(path)
-    if check ==1:
+    if check == 1:
         sending_data_master(path, UserInput.inputList)

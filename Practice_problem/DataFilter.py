@@ -9,8 +9,8 @@ def sheettraversing(sheet):
     validFlag = 0
     maxrows = sheet.max_row
     maxcolumn = sheet.max_column
-    print(maxrows)
-    print(maxcolumn)
+    # print(maxrows)
+    # print(maxcolumn)
     loi_list = len(UserInput.inputList)
    # for listdata in range(0, loi_list):  rem
     for i in range(2, maxrows+1):                                   # i is rows and j is column
@@ -25,8 +25,8 @@ def sheettraversing(sheet):
                 v2 = str(data_at_cell2.value)
                 v3 = str(data_at_cell3.value)
                 v = [v1, v2, v3]
-                print(v)
-                print(loi_list)
+                # print(v)
+                # print(loi_list)
                 add =0
                 for check in range(0, 3):
                     for inner in range(0, loi_list):
@@ -45,7 +45,7 @@ def sheettraversing(sheet):
 
 
 def validating_input(path):
-    print("you are in validating input sect")
+    # print("you are in validating input sect")
     # lenofinputpath = len(UserInput.pathList)
 
     # if UserInput.Dict["RF_ManualPath"] ==1 and UserInput.Dict["RF_ManualFilterInput"] ==1:
@@ -57,9 +57,9 @@ def validating_input(path):
     # path = UserInput.pathList[i]
     workbook = load_workbook(path)
     sheetlist = workbook.sheetnames
-    print(sheetlist)
+    # print(sheetlist)
     totalsheet = len(sheetlist)
-    print(totalsheet)
+    # print(totalsheet)
     for sheet in range(0, totalsheet):
         print('you are in sheet', count)
         check = sheettraversing(workbook[sheetlist[sheet]])
