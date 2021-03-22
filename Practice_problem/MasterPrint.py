@@ -1,8 +1,24 @@
+'''
+importing the library file openpyxl as xl
+'''
 import openpyxl as xl
+'''
+importing UserInput.py file
+'''
 import UserInput
+'''
+Importing the datafilter.py file
+'''
 import DataFilter
 
+'''
 
+Function name : writing_master()
+Input : Global key search key
+Output : after data found in respective sheet , copying the data to master sheet.
+
+"""
+'''
 def writing_mastersheet():
     pathMasterWorkbook = UserInput.outputPath[0]
     masterbook = xl.load_workbook(pathMasterWorkbook)
